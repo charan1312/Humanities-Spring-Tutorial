@@ -25,7 +25,7 @@ public class HomeController {
     @RequestMapping(value="/")
     public String home(ModelMap map) {
         map.addAttribute("mood", serviceImpl.getCurrentMood());
-        return "index2";
+        return "home";
     }
     
     @RequestMapping(value="/reason/{mood}")
@@ -33,5 +33,10 @@ public class HomeController {
         String reason = serviceImpl.getReason(mood);
         map.addAttribute("reasonMap",reason);
         return "next";
+    }
+    
+    @RequestMapping(value="/about")
+    public String about(ModelMap map) {
+        return "about";
     }
 }
